@@ -13,6 +13,7 @@ while true do
     local webText = ""
     for chunk in webHandle do webText = webText..chunk end
     --print("Response = \n"..webText)
+    fileHandle:close()
 end
 gitdata:close()
 
