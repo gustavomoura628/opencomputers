@@ -20,4 +20,3 @@ end
 gitdata:close()
 
 print("Done!")
-d
