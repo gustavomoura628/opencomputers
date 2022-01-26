@@ -17,4 +17,3 @@ end
 gitdata:close()
 
 print("Done!")
-print("WHAT")
