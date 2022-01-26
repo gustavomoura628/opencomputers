@@ -7,7 +7,8 @@ while true do
     local files,filee = string.find(line,'^[^ ]*')
     local file = string.sub(line,files,filee)
     local address = string.sub(line,filee+2)
-    print("File: "..file..", Address: "..address)
+    --print("File: "..file..", Address: "..address)
+    print("Updating "..file)
     local fileHandle = io.open(file,"w")
     local webHandle = internet.request(address)
     local webText = ""
@@ -18,4 +19,3 @@ end
 gitdata:close()
 
 print("Done!")
-print("I dont understand")
