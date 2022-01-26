@@ -12,6 +12,8 @@ while true do
     local webHandle = internet.request(address)
     local webText = ""
     for chunk in webHandle do webText = webText..chunk end
-    print("Response = \n"..webText)
+    --print("Response = \n"..webText)
 end
 gitdata:close()
+
+print("Done!")
