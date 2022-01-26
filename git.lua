@@ -1,3 +1,5 @@
+local internet = require("internet")
+
 local gitdata = io.open('gitdata','r')
 while true do
     local line = gitdata:read()
@@ -6,5 +8,10 @@ while true do
     local file = string.sub(line,files,filee)
     local address = string.sub(line,filee+2)
     print("File: "..file..", Address: "..address)
+    local fileHandle = io.open(file,"w+")
+    local webHandle = internet.request(address)
+    local webText = ""
+    for chunk in webHandle do webText = webText..chunk end
+    print("Response = \n"..webText)
 end
 gitdata:close()
