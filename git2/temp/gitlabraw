@@ -1,0 +1,11 @@
+#opencomputers read token
+glpat-s5RVnXVSyYb5ts-diEub
+
+#get file
+curl --request GET --header "Private-Token: glpat-Xgc8Cju8H9vzPmrqFd_G" "https://gitlab.com/api/v4/projects/37733747/repository/files/README.md/raw"
+
+#get time of file
+git log --format=%ci README.md | tail -n 1 | perl -pe 's/^(.*) .*/$1/' | perl -pe 's/[- :+]//g'
+
+#get raw of a file in a subdirectory "/" are encoded using %2F
+curl --request GET --header "Private-Token: glpat-Xgc8Cju8H9vzPmrqFd_G" "https://gitlab.com/api/v4/projects/37733747/repository/files/folderA%2Fa/raw"
