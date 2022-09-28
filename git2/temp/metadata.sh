@@ -2,7 +2,7 @@
 
 function gettimestamp(){
     file=$1
-    git log --format=%ci $file | tail -n 1 | perl -pe 's/^(.*) .*/$1/' | perl -pe 's/[- :+]//g'
+    git log --format=%ci $file | head -n 1 | perl -pe 's/^(.*) .*/$1/' | perl -pe 's/[- :+]//g'
 }
 function gentimestamp(){
     [ -f ".gitmetadata" ] && rm .gitmetadata
@@ -28,4 +28,11 @@ function gentimestamp(){
     echo $lastedit
 }
 
+git add .
+git commit -m "-"
+
 gentimestamp
+
+git add .
+git commit -m "-"
+git push
